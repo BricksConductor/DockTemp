@@ -5,6 +5,7 @@ RUN apt-get update && \
     apt-get install transmission-cli transmission-common transmission-daemon && \
     sed -i 's/"rpc-whitelist": "127.0.0.1"/"rpc-whitelist": "*.*.*.*"/g' /etc/transmission-daemon/settings.json
 
+
 COPY . . 
 
 RUN transmission-daemon
