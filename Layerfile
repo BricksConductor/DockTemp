@@ -2,7 +2,8 @@ FROM vm/ubuntu:18.04
 
 # install the latest version of Docker, as in the official Docker installation tutorial.
 RUN apt-get update && \
-    apt-get install transmission-cli transmission-common transmission-daemon
+    apt-get install transmission-cli transmission-common transmission-daemon && \
+    sed -i 's/"rpc-whitelist": "127.0.0.1"/"rpc-whitelist": "*.*.*.*"/g' /etc/transmission-daemon/settings.json
 
 COPY . . 
 
