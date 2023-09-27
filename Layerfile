@@ -1,6 +1,6 @@
 FROM vm/ubuntu:18.04
 
-RUN apt update && apt-get -y Node.js npm
+RUN apt update && apt-get install -y Node.js npm
 RUN npm i -g webtorrent-webui
 
 RUN BACKGROUND webtorrent-webui -p 3000 -t /tmp/ -d /home/ -l 0.0.0.0 -a 42069 -o 5489
